@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Create Temporary Link</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-size: 24px;
+        width: 100%;
+        word-break: break-all;
+      }
+      a,
+      form {
+        display: block;
+        margin: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input id="linkForm" type="text" />
+      <input
+        type="button"
+        value="AddLinkFromForm"
+        onclick="AddLinkFromForm()"
+      />
+      <input type="button" value="Clear" onclick="Clear()" />
+    </form>
+    <div id="linkArea"></div>
+    <script>
+      const AddLink = (link) => {
+        if (link.length < 6) return;
+        const a = document.createElement("a");
+        const linkText = document.createTextNode(link);
+        a.appendChild(linkText);
+        a.href = link;
+        document.getElementById("linkArea").appendChild(a);
+      };
+
+      const AddLinkFromHash = () => {
+        const hash = window.location.hash;
+        const urls = hash.split(",");
+        urls.forEach((u) => AddLink(decodeURIComponent(u)));
+      };
+
+      const AddLinkFromForm = () => {
+        const link = document.getElementById("linkForm");
+        AddLink(link.value);
+        window.location.hash = `${window.location.hash},${encodeURIComponent(
+          link.value
+        )}`;
+        link.value = "";
+      };
+
+      const Clear = () => {
+        const area = document.getElementById("linkArea");
+        while (area.firstChild) {
+          area.removeChild(area.firstChild);
+        }
+        window.location.hash = "";
+      };
+
+      AddLinkFromHash();
+    </script>
+  </body>
+</html>
