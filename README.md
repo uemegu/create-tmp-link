@@ -11,5 +11,9 @@ It is easy but bothersome.
 # Usage
 
 Add link from text form. Link will be appeared.
-And then, url hash will be changed.
+And then, url hash will be changed.  
 You can send url to other tester and tester can use it easy.
+
+# Try
+
+https://uemegu.github.io/create-tmp-link/#

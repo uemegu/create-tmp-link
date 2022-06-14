@@ -9,6 +9,7 @@
         word-break: break-all;
       }
       a,
+      div,
       form {
         display: block;
         margin: 2rem;
@@ -26,6 +27,14 @@
       <input type="button" value="Clear" onclick="Clear()" />
     </form>
     <div id="linkArea"></div>
+    <div style="margin-top: 5rem">
+      Source is
+      <a
+        style="display: inline; margin: 0"
+        href="https://github.com/uemegu/create-tmp-link"
+        >https://github.com/uemegu/create-tmp-link</a
+      >
+    </div>
     <script>
       const AddLink = (link) => {
         if (link.length < 6) return;
