@@ -2,8 +2,8 @@
 
 This tool is for testing.
 
-- Testing Query parameter for Web App
 - Testing URL Scheme, Universal Link/AppLink for Mobile App
+- Testing Query parameter for Web App
 
 Sometimes, We should upload link page to web server for testing.
 It is easy but bothersome.
